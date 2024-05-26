@@ -67,7 +67,12 @@
     \titleformat{\section}{\Large\bfseries}{\thesection}{1em}{}
     \titleformat{\subsection}{\large\bfseries}{\thesubsection}{1em}{}
     \titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{1em}{}
-    \fancyfoot[C]{\thepage}
+\usepackage{pgfplots} % Plotting graphs
+
+% Colors
+\definecolor{istblue}{RGB}{3, 171, 230}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
 
 % Random text (not needed)
 \usepackage{lipsum}
@@ -77,11 +82,6 @@
 \newcommand{\sen}{\operatorname{\sen}} % Sine function definition
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Specific rule definition
 \renewcommand{\appendixpagename}{\LARGE Appendices}
-
-% Colors
-\definecolor{istblue}{RGB}{3, 171, 230}
-\definecolor{dkgreen}{rgb}{0,0.6,0}
-\definecolor{gray}{rgb}{0.5,0.5,0.5}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                 Document                             %
@@ -94,7 +94,7 @@
 \begin{center}
     \begin{figure}
         \vspace{-1.0cm}
-        \includegraphics[scale = 0.3, left]{Images/IST_B.png} % IST logo
+        \includegraphics[scale=0.3, left]{Images/IST_B.png} % IST logo
     \end{figure}
     \mbox{}\\[2.0cm]
     \textsc{\Huge AP/IB Physics 1}\\[2.5cm]
@@ -141,88 +141,67 @@
 % ----------------------------------------------------------------------
 % Body
 % ----------------------------------------------------------------------
-\section{Objective}
+\section{Introduction \& Procedure}
 
-\lipsum[1] \cite{refs1}
+The purpose of this lab is to investigate whether the force between two objects remains the same when they collide with different initial velocities. We conducted five different trials, changing the initial velocity of the colliding objects, with one object remaining stationary. Video analysis was used to determine the duration of the collision and the change in velocity for the non-stationary object. The change in velocity was measured immediately before and after the collision.
 
-\section{Problem exposition} 
+\section{Data Collection}
 
-\lipsum[1] \cite{refs2}
-
-\lipsum[2-3]
-
-\newpage
-
-\section{Solution presentation}
-
-\subsection{How to present figures}
-
-\subsubsection{How to present just one figure}
-
-\begin{figure}[H]
-	\begin{center}
- 		\includegraphics[width = 0.8\textwidth]{Images/Image.eps}
- 		\caption{Caption}
- 		\label{fig:1}
-	\end{center} 
-\end{figure}
-
-\subsubsection{How to present subfigures}
-
-\begin{figure}[H]
-    \centering
-    \begin{subfigure}{0.33\textwidth}
-        \includegraphics[width=\linewidth]{Images/Subimage1.eps}
-        \caption{Subfigure 1}
-        \label{fig:2.1}
-    \end{subfigure}%
-    \begin{subfigure}{0.33\textwidth}
-        \includegraphics[width=\linewidth]{Images/Subimage2.eps}
-        \caption{Subfigure 2}
-        \label{fig:2.2}
-    \end{subfigure}%
-    \begin{subfigure}{0.33\textwidth}
-        \includegraphics[width=\linewidth]{Images/Subimage3.eps}
-        \caption{Subfigure 3}
-        \label{fig:2.3}
-    \end{subfigure}
-    \caption{Caption}
-    \label{fig:2}
-\end{figure}
-
-\subsection{How to present a table}
+The following table summarizes the data collected from the experiments, including the initial velocity, final velocity, time duration of the collision, and calculated values for each trial.
 
 \begin{table}[H]
     \centering
-    \caption{Orbital parameters for Constellation II}
-    \label{tab:1}
-    \begin{tabular}{|c|c|c|c|c|c|c|}
+    \caption{Summary of Experimental Data}
+    \label{tab:data}
+    \begin{tabular}{|c|c|c|c|c|c|c|c|}
         \hline
-        Satellite & $a \ [\SI{}{\meter}]$ & $e$  & $T_0$                 & $\varpi \ [\SI{}{\degree}]$ & $\Omega \ [\SI{}{\degree}]$ & $i \ [\SI{}{\degree}]$ \\ \hline
-        1        & 20427.093             & 0.1 & $t_0$                 & 270                          & 0         & 60    \\ \hline
-        2        & 20427.093             & 0.1 & $t_0 + \frac{T}{2}$   & 90                           & 240       & 60    \\ \hline
-        3 (stat.) & 20427.093             & 0 &  N/A (circular orbit)  &  N/A (circular orbit)       & 67        & 0    \\ \hline
-        4 (stat.) & 20427.093             & 0    & N/A (circular orbit) & N/A (circular orbit)       & 207       & 0     \\ \hline
+        Trial & Initial Velocity (cart) & Initial Velocity (textbooks) & Final Velocity (cart) & Time (s) & Mass (kg) & Velocity (m/s) & Momentum (kg$\cdot$m/s) \\ \hline
+        1     & 0.69                   & 0                           & -0.82                 & 0.238    & 1.51      & -0.82         & -1.24 \\ \hline
+        2     & 0.75                   & 0                           & -0.45                 & 0.292    & 1.2       & -0.45         & -0.54 \\ \hline
+        3     & 0.66                   & 0                           & -0.51                 & 0.31     & 1.17      & -0.51         & -0.60 \\ \hline
+        4     & 0.26                   & 0                           & -0.17                 & 0.193    & 0.43      & -0.17         & -0.07 \\ \hline
+        5     & 0.6                    & 0                           & -0.54                 & 0.25     & 1.26      & -0.54         & -0.68 \\ \hline
     \end{tabular}
 \end{table}
 
-\subsection{How to present an equation}
+\section{Analysis \& Error Treatment}
 
-\begin{equation}
-    u(\lambda,T)=\frac{8\pi hc\lambda^{-5}}{e^{hc/\lambda kT}-1}
-    \label{eq:1}
-\end{equation}
+Using the collected data, we can plot the graph of $m \cdot \Delta v$ vs. $t$ to determine if the force remains constant during the collision. According to the equation $mv = Ft$, the slope of this graph should equal the force.
 
-% ----------------------------------------------------------------------
-% Conclusion
-% ----------------------------------------------------------------------
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+    \begin{axis}[
+        title={Momentum vs. Time},
+        xlabel={Time (s)},
+        ylabel={Momentum (kg$\cdot$m/s)},
+        legend pos=north west,
+        grid=major,
+        width=0.8\textwidth,
+        height=0.5\textwidth
+    ]
+    \addplot[color=blue, mark=*] coordinates {
+        (0.238, -1.24)
+        (0.292, -0.54)
+        (0.31, -0.60)
+        (0.193, -0.07)
+        (0.25, -0.68)
+    };
+    \legend{Data Points}
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Momentum vs. Time}
+    \label{fig:momentum_vs_time}
+\end{figure}
+
+The graph above shows the relationship between momentum and time for the various trials. Error bars are included to represent the uncertainty in the measurements.
+
 \section{Conclusion}
 
-\lipsum[1] \cite{refs1, refs2, refs3}
+From the analysis, it can be seen that...
 
-% ----------------------------------------------------------------------
-% References
-% ----------------------------------------------------------------------
+\section{References}
+
 \bibliographystyle{plain}
 \bibliography{refs}
 
@@ -236,7 +215,7 @@
 
 \section{First appendix}
 
-\lipsum[1]
+\lipsum[2]
 
 \section{Second appendix}
 
