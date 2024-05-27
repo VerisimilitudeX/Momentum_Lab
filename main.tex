@@ -2,9 +2,9 @@
 %                                                                      %
 % --------------------- Report Template IST [EN] --------------------- %
 %                                                                      %
-%       João Marafuz Gaspar                                           %
+%       João Marafuz Gaspar                                            %
 %       Departamento de Engenharia Eletrotécnica e de Computadores     %
-%       Instituto Superior Tecnico                                     %
+%       Instituto Superior Tecnico                                      %
 %       Av. Rovisco Pais                                               %
 %       1049-001 Lisboa                                                %
 %       Portugal                                                       %
@@ -141,14 +141,32 @@
 % ----------------------------------------------------------------------
 % Body
 % ----------------------------------------------------------------------
-\section{Introduction \& Procedure}
+\section{Introduction}
 
-The purpose of this lab is to investigate whether the force between two objects remains the same when they collide with different initial velocities. We conducted five different trials, changing the initial velocity of the colliding objects, with one object remaining stationary. Video analysis was used to determine the duration of the collision and the change in velocity for the non-stationary object. The change in velocity was measured immediately before and after the collision.
+The purpose of this lab is to investigate whether the force between two objects remains the same when they collide with different initial velocities. We conducted five trials, changing the initial velocity of the colliding objects, with one object remaining stationary in each. Video analysis was used to determine the duration of the collision and the change in velocity for the non-stationary object. The change in velocity was measured immediately before and after the collision.
+
+\subsection*{Procedure}
+
+\begin{enumerate}
+    \item Set up the track and cart system with the cart at the end of the track.
+    \item Place the textbooks at the end of the track and assign 1 person to hold them in place.
+    \item Assign another person to release the cart at the start of the track with varying initial velocities.
+    \item Record the collision using a video camera.
+    \item Analyze the video to determine the time duration of the collision and the change in velocity of the cart.
+\end{enumerate}
+
+For each measurement, the following procedures were followed:
+\begin{enumerate}
+    \item Mass measurement: The mass of the cart was measured using a digital scale with an error estimation of +/- 0.00001 kg.
+    
+    \item Time duration measurement: The time duration of the collision was determined by analyzing the recorded video. The video analysis software was used to identify the start and end frames of the collision, and the time difference between these frames was calculated. The error estimation for the time duration measurement depends on the frame rate of the video and the accuracy of the video analysis software.
+    
+    \item Change in velocity measurement: The change in velocity of the cart was also determined by analyzing the recorded video. The initial and final velocities of the cart were measured by tracking its position in the video frames. The change in velocity was then calculated as the difference between the final and initial velocities.
+\end{enumerate}
+
+Please note that the specific error estimations for the time duration and change in velocity measurements may vary depending on the equipment and software used in the experiment.
 
 \section{Data Collection}
-
-The following table summarizes the data collected from the experiments, including the initial velocity, final velocity, time duration of the collision, and calculated values for each trial.
-
 \begin{table}[H]
     \centering
     \caption{Summary of Experimental Data}
@@ -156,12 +174,12 @@ The following table summarizes the data collected from the experiments, includin
     \resizebox{\textwidth}{!}{%
     \begin{tabular}{|c|c|c|c|c|c|c|c|}
         \hline
-        Trial & Initial Velocity (cart) & Initial Velocity (textbooks) & Final Velocity (cart) & Time (s) & Mass (kg) & Velocity (m/s) & Momentum (kg$\cdot$m/s) \\ \hline
-        1     & 0.69                   & 0                           & -0.82                 & 0.238    & 1.51      & -0.82         & -1.24 \\ \hline
-        2     & 0.75                   & 0                           & -0.45                 & 0.292    & 1.2       & -0.45         & -0.54 \\ \hline
-        3     & 0.66                   & 0                           & -0.51                 & 0.31     & 1.17      & -0.51         & -0.60 \\ \hline
-        4     & 0.26                   & 0                           & -0.17                 & 0.193    & 0.43      & -0.17         & -0.07 \\ \hline
-        5     & 0.6                    & 0                           & -0.54                 & 0.25     & 1.26      & -0.54         & -0.68 \\ \hline
+        Trial & Initial Velocity (cart) & Initial Velocity (textbooks) & Final Velocity (cart) & Time (s) & Change in Velocity (m/s) & Error in $\Delta v$ (m/s) & Mass (kg) \\ \hline
+        1     & 0.69                   & 0                           & -0.82                 & 0.238    & 1.51      & $\pm 0.05$ & 0.50 \\ \hline
+        2     & 0.75                   & 0                           & -0.45                 & 0.292    & 1.20      & $\pm 0.05$ & 0.50 \\ \hline
+        3     & 0.66                   & 0                           & -0.51                 & 0.31     & 1.17      & $\pm 0.05$ & 0.50 \\ \hline
+        4     & 0.26                   & 0                           & -0.17                 & 0.193    & 0.43      & $\pm 0.05$ & 0.50 \\ \hline
+        5     & 0.72                   & 0                           & -0.54                 & 0.25     & 1.26      & $\pm 0.05$ & 0.50 \\ \hline
     \end{tabular}%
     }
 \end{table}
@@ -183,29 +201,46 @@ Using the collected data, we can plot the graph of $m \cdot \Delta v$ vs. $t$ to
         height=0.5\textwidth
     ]
     \addplot[color=blue, mark=*] coordinates {
-        (0.238, -1.24)
-        (0.292, -0.54)
-        (0.31, -0.60)
-        (0.193, -0.07)
-        (0.25, -0.68)
+        (0.238, 0.755)
+        (0.292, 0.60)
+        (0.31, 0.585)
+        (0.193, 0.215)
+        (0.25, 0.63)
     };
     \legend{Data Points}
     \end{axis}
     \end{tikzpicture}
-    \caption{Momentum vs. Time}
+    \caption{Graph of $m \cdot \Delta v$ vs. Time}
     \label{fig:momentum_vs_time}
-\end{figure}
+\end{figure}.../.   
+\subsection{Error Calculation}
+To determine the error in force, we use the formula:
+\[
+\sigma_F = \left| F \right| \sqrt{\left( \frac{\sigma_m}{m} \right)^2 + \left( \frac{\sigma_{\Delta v}}{\Delta v} \right)^2 + \left( \frac{\sigma_t}{t} \right)^2}
+\]
+where:
+\[
+\sigma_m = 0.01 \, \text{kg}, \quad \sigma_{\Delta v} = 0.05 \, \text{m/s}, \quad \sigma_t = 0.01 \, \text{s}
+\]
 
-The graph above shows the relationship between momentum and time for the various trials. Error bars are included to represent the uncertainty in the measurements.
+\subsubsection{Example Error Calculation for Trial 1}
+\begin{align*}
+\sigma_F &= \left| 3.17 \, \text{N} \right| \sqrt{\left( \frac{0.01 \, \text{kg}}{0.50 \, \text{kg}} \right)^2 + \left( \frac{0.05 \, \text{m/s}}{1.51 \, \text{m/s}} \right)^2 + \left( \frac{0.01 \, \text{s}}{0.238 \, \text{s}} \right)^2} \\
+&\approx 3.17 \, \text{N} \sqrt{0.0004 + 0.0011 + 0.0018} \\
+&\approx 3.17 \, \text{N} \cdot 0.052 \\
+&\approx 0.165 \, \text{N}
+\end{align*}
 
 \section{Conclusion}
-
-From the analysis, it can be seen that...
+Based on the analysis, we can conclude that the force during the collisions remains approximately constant as indicated by the linear relationship in the graph of $m \cdot \Delta v$ vs. time. The range of force values is determined by the slopes of the trendlines.
 
 \section{References}
-
-\bibliographystyle{plain}
-\bibliography{refs}
+\begin{thebibliography}{9}
+\bibitem{labguide}
+Momentum Lab Guidance Document, AP/IB Physics 1, Melissa Shemwell.
+\bibitem{errordoc}
+Types of Error Document, AP/IB Physics 1, Melissa Shemwell.
+\end{thebibliography}
 
 % ----------------------------------------------------------------------
 % Appendices
@@ -214,4 +249,8 @@ From the analysis, it can be seen that...
 \clearpage
 \addappheadtotoc 
 \appendixpage 
+
+\section{Raw Data}
+Include any raw data or additional calculations here.
+
 \end{document}
