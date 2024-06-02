@@ -1,100 +1,60 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% main.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                                                                      %
-% --------------------- Report Template IST [EN] --------------------- %
-%                                                                      %
-%       João Marafuz Gaspar                                            %
-%       Departamento de Engenharia Eletrotécnica e de Computadores     %
-%       Instituto Superior Tecnico                                      %
-%       Av. Rovisco Pais                                               %
-%       1049-001 Lisboa                                                %
-%       Portugal                                                       %
-%       E-mail: joao.marafuz.gaspar@tecnico.ulisboa.pt                 %
-%                                                                      %
-%  Created:       Jul 30, 2022                                         %
-%  Last Modified: May 18, 2024                                         %
-%                                                                      %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%  Revision history                                                    %
-%  v1 - 2022/07/30 - original template                                 %
-%  v2 - 2023/04/06 - change superscript in the cover, updated font,    %
-%                    added subfigures and table                        %
-%  v3 - 18/05/2024 - update for using only one font, known by the name %
-%                    of CMU Serif Roman                                %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                              Preamble                                %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% ----------------------------------------------------------------------
-% Set the document class
-% ----------------------------------------------------------------------
 \documentclass[12pt]{article}
 
-% ----------------------------------------------------------------------
-% Define external packages, language, margins, fonts, new commands 
-% and colors
-% ----------------------------------------------------------------------
-\usepackage[utf8]{inputenc} % Codification
-\usepackage[english]{babel} % Writing idiom
-
-\usepackage[export]{adjustbox} % Align images
-\usepackage{amsmath} % Extra commands for math mode
-\usepackage{amssymb} % Mathematical symbols
-\usepackage{anysize} % Personalize margins
-    \marginsize{2cm}{2cm}{2cm}{2cm} % {left}{right}{above}{below}
-\usepackage{appendix} % Appendices
-\usepackage{cancel} % Expression cancellation
-\usepackage{caption} % Captions
-    \captionsetup{labelfont={bf}}
-\usepackage{cite} % Citations, like [1 - 3]
-\usepackage{color} % Text coloring
-\usepackage{fancyhdr} % Head note and footnote
-    \pagestyle{fancy}
-    \fancyhf{}
-    \fancyhead[L]{\footnotesize \today} % Left of Head note
-    \fancyhead[R]{\footnotesize Piyush Acharya} % Right of Head note
-    \fancyfoot[L]{\footnotesize P4 AP/IB Physics 1} % Left of Footnote
-    \fancyfoot[C]{\thepage} % Center of Footnote
-    \fancyfoot[R]{\footnotesize Momentum Lab} % Right of Footnote
-    \renewcommand{\footrulewidth}{0.4pt} % Footnote rule
-\usepackage{float} % Utilization of [H] in figures
-\usepackage{graphicx} % Figures in LaTeX
-\usepackage[colorlinks = true, plainpages = true, linkcolor = istblue, urlcolor = istblue, citecolor = istblue, anchorcolor = istblue]{hyperref}
-\usepackage{indentfirst} % First paragraph
-\usepackage[super]{nth} % Superscripts
-\usepackage{siunitx} % SI units
-\usepackage{subcaption} % Subfigures
-\usepackage{titlesec} % Font
-    \titleformat{\section}{\Large\bfseries}{\thesection}{1em}{}
-    \titleformat{\subsection}{\large\bfseries}{\thesubsection}{1em}{}
-    \titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{1em}{}
-\usepackage{pgfplots} % Plotting graphs
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{anysize}
+\usepackage{appendix}
+\usepackage{cancel}
+\usepackage{caption}
+\usepackage{cite}
+\usepackage{color}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{indentfirst}
+\usepackage[super]{nth}
+\usepackage{siunitx}
+\usepackage{subcaption}
+\usepackage{titlesec}
+\usepackage{pgfplots}
+\usepackage{booktabs}
 
 % Colors
 \definecolor{istblue}{RGB}{3, 171, 230}
-\definecolor{dkgreen}{rgb}{0,0.6,0}
-\definecolor{gray}{rgb}{0.5,0.5,0.5}
 
-% Random text (not needed)
-\usepackage{lipsum}
-\usepackage{duckuments}
+% Document settings
+\marginsize{2cm}{2cm}{2cm}{2cm}
+\captionsetup{labelfont={bf}}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize \today}
+\fancyhead[R]{\footnotesize Piyush Acharya}
+\fancyfoot[L]{\footnotesize P4 AP/IB Physics 1}
+\fancyfoot[C]{\thepage}
+\fancyfoot[R]{\footnotesize Momentum Lab}
+\renewcommand{\footrulewidth}{0.4pt}
 
-% New and re-newcommands
-\newcommand{\sen}{\operatorname{\sen}} % Sine function definition
-\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Specific rule definition
+% Title formats
+\titleformat{\section}{\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{1em}{}
+
+% New commands
+\newcommand{\sen}{\operatorname{\sen}}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 \renewcommand{\appendixpagename}{\LARGE Appendices}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                                 Document                             %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
-% ----------------------------------------------------------------------
-% Cover
-% ----------------------------------------------------------------------
+% Cover page
 \begin{center}
     \begin{figure}
         \vspace{-1.0cm}
-        \includegraphics[scale=0.3, left]{Images/IST_B.png} % IST logo
+        \includegraphics[scale=0.3]{Images/IST_B.png}
     \end{figure}
     \mbox{}\\[2.0cm]
     \textsc{\Huge AP/IB Physics 1}\\[2.5cm]
@@ -131,126 +91,143 @@
 
 \newpage
 
-% ----------------------------------------------------------------------
-% Contents
-% ----------------------------------------------------------------------
-\tableofcontents 
+% Table of contents
+\tableofcontents
 
 \newpage
 
-% ----------------------------------------------------------------------
-% Body
-% ----------------------------------------------------------------------
+% Introduction
 \section{Introduction}
 
-The purpose of this lab is to investigate whether the force between two objects remains the same when they collide with different initial velocities. We conducted five trials, changing the initial velocity of the colliding objects, with one object remaining stationary in each. Video analysis was used to determine the duration of the collision and the change in velocity for the non-stationary object. The change in velocity was measured immediately before and after the collision.
+The purpose of this lab is to investigate whether the force between two objects remains constant when they collide with varying initial velocities. We conducted five trials, changing the initial velocity of the colliding objects, with one object remaining stationary in each (a wall of heavy textbooks). Video analysis using Logger Pro was used to determine the duration of the collision and the change in velocity for the non-stationary object. The change in velocity was measured immediately before and after the collision.
 
 \subsection*{Procedure}
 
 \begin{enumerate}
     \item Set up the track and cart system with the cart at the end of the track.
-    \item Place the textbooks at the end of the track and assign 1 person to hold them in place.
-    \item Assign another person to release the cart at the start of the track with varying initial velocities.
+    \item Place the textbooks at the end of the track and assign one person to hold them in place.
+    \item Assign another person to release the cart at the start of the track with varying initial velocities. The initial velocity is controlled through the force applied to the cart by the person's hand.
     \item Record the collision using a video camera.
     \item Analyze the video to determine the time duration of the collision and the change in velocity of the cart.
 \end{enumerate}
 
 For each measurement, the following procedures were followed:
+
 \begin{enumerate}
-    \item Mass measurement: The mass of the cart was measured using a digital scale with an error estimation of +/- 0.00001 kg.
-    
+    \item Mass of the cart: The mass of the cart was measured using a digital scale with an error estimation of $\pm 0.00001$ kg.
     \item Time duration measurement: The time duration of the collision was determined by analyzing the recorded video. The video analysis software was used to identify the start and end frames of the collision, and the time difference between these frames was calculated. The error estimation for the time duration measurement depends on the frame rate of the video and the accuracy of the video analysis software.
-    
     \item Change in velocity measurement: The change in velocity of the cart was also determined by analyzing the recorded video. The initial and final velocities of the cart were measured by tracking its position in the video frames. The change in velocity was then calculated as the difference between the final and initial velocities.
 \end{enumerate}
 
-Please note that the specific error estimations for the time duration and change in velocity measurements may vary depending on the equipment and software used in the experiment.
+\subsection*{Error Estimation Explanation}
 
+- The error in mass ($\sigma_m$) was determined based on the precision of the digital scale, which has an uncertainty of $\pm 0.00001$ kg.
+- The error in the time duration of the collision ($\sigma_t$) was calculated considering the frame rate of the video and the precision of the video analysis software, typically around $\pm 0.01$ seconds.
+- The error in the change of velocity ($\sigma_{\Delta v}$) was derived from the accuracy of the video analysis software in determining the initial and final velocities, estimated to be $\pm 0.05$ m/s.
+
+% Data Collection
 \section{Data Collection}
 \begin{table}[H]
     \centering
     \caption{Summary of Experimental Data}
     \label{tab:data}
-    \resizebox{\textwidth}{!}{%
-    \begin{tabular}{|c|c|c|c|c|c|c|c|}
-        \hline
-        Trial & Initial Velocity (cart) & Initial Velocity (textbooks) & Final Velocity (cart) & Time (s) & Change in Velocity (m/s) & Error in $\Delta v$ (m/s) & Mass (kg) \\ \hline
-        1     & 0.69                   & 0                           & -0.82                 & 0.238    & 1.51      & $\pm 0.05$ & 0.50 \\ \hline
-        2     & 0.75                   & 0                           & -0.45                 & 0.292    & 1.20      & $\pm 0.05$ & 0.50 \\ \hline
-        3     & 0.66                   & 0                           & -0.51                 & 0.31     & 1.17      & $\pm 0.05$ & 0.50 \\ \hline
-        4     & 0.26                   & 0                           & -0.17                 & 0.193    & 0.43      & $\pm 0.05$ & 0.50 \\ \hline
-        5     & 0.72                   & 0                           & -0.54                 & 0.25     & 1.26      & $\pm 0.05$ & 0.50 \\ \hline
-    \end{tabular}%
-    }
+    \begin{tabular}{cccccccc}
+        \toprule
+        Trial & Initial Velocity & Initial Velocity & Final Velocity & Velocity & Mass & Time & Velocity * Mass \\
+              & (cart) m/s & (textbooks) m/s & (cart) m/s & (m/s) & (kg) & (s) & (kg*m/s) \\
+        \midrule
+        1  & 0.69  & 0 & -0.82 & 1.51 & 0.5 & 0.238 & 0.755 \\
+        2  & 0.75  & 0 & -0.45 & 1.2  & 0.5 & 0.292 & 0.6   \\
+        3  & 0.66  & 0 & -0.51 & 1.17 & 0.5 & 0.31  & 0.585 \\
+        4  & 0.26  & 0 & -0.17 & 0.43 & 0.5 & 0.193 & 0.215 \\
+        5  & 0.72  & 0 & -0.54 & 1.26 & 0.5 & 0.25  & 0.63  \\
+        6  & 0.6   & 0 & -0.45 & 1.05 & 0.5 & 0.186 & 0.525 \\
+        7  & 1.92  & 0 & -0.63 & 2.55 & 0.5 & 0.204 & 1.275 \\
+        8  & 0.63  & 0 & -0.07 & 0.7  & 0.5 & 0.412 & 0.35  \\
+        9  & 0.98  & 0 & -0.63 & 1.61 & 0.5 & 1.165 & 0.805 \\
+        10 & 1.1   & 0 & -0.7  & 1.8  & 0.5 & 1.114 & 0.9   \\
+        11 & 1.226 & 0 & -0.74 & 1.966 & 0.5 & 0.973 & 0.983 \\
+        12 & 0.569 & 0 & -0.16 & 0.729 & 0.5 & 0.3645 & 0.3645 \\
+        13 & 1.67  & 0 & -1.33 & 3    & 0.5 & 0.132 & 1.5   \\
+        14 & 1.29  & 0 & -0.74 & 2.02 & 0.5 & 0.985 & 1.01  \\
+        15 & 1.51  & 0 & -0.73 & 2.24 & 0.5 & 1.121 & 1.12  \\
+        16 & 1.2   & 0 & -0.7  & 1.9  & 0.5 & 0.946 & 0.95  \\
+        \bottomrule
+    \end{tabular}
 \end{table}
 
+% Analysis and Error Treatment
 \section{Analysis \& Error Treatment}
 
 Using the collected data, we can plot the graph of $m \cdot \Delta v$ vs. $t$ to determine if the force remains constant during the collision. According to the equation $mv = Ft$, the slope of this graph should equal the force.
 
+\section{Error Calculation Methodology}
+
+To ensure the accuracy of the force calculations, errors in mass ($\sigma_m$), change in velocity ($\sigma_{\Delta v}$), and time ($\sigma_t$) were considered.
+
+\subsection*{Error in Mass}
+The error in mass was determined by the precision of the digital scale, which is $\pm 0.00001$ kg.
+
+\subsection*{Error in Time}
+The error in time was derived from the frame rate of the video and the video analysis software, estimated at $\pm 0.01$ seconds.
+
+\subsection*{Error in Change of Velocity}
+The error in the change of velocity was estimated based on the precision of the video analysis software, which is $\pm 0.05$ m/s.
+
+This process was repeated for all trials.
+
+% Image inclusion
 \begin{figure}[H]
     \centering
-    \begin{tikzpicture}
-    \begin{axis}[
-        title={Momentum vs. Time},
-        xlabel={Time (s)},
-        ylabel={Momentum (kg$\cdot$m/s)},
-        legend pos=north west,
-        grid=major,
-        width=0.8\textwidth,
-        height=0.5\textwidth
-    ]
-    \addplot[color=blue, mark=*] coordinates {
-        (0.238, 0.755)
-        (0.292, 0.60)
-        (0.31, 0.585)
-        (0.193, 0.215)
-        (0.25, 0.63)
-    };
-    \legend{Data Points}
-    \end{axis}
-    \end{tikzpicture}
-    \caption{Graph of $m \cdot \Delta v$ vs. Time}
-    \label{fig:momentum_vs_time}
-\end{figure}.../.   
-\subsection{Error Calculation}
-To determine the error in force, we use the formula:
-\[
-\sigma_F = \left| F \right| \sqrt{\left( \frac{\sigma_m}{m} \right)^2 + \left( \frac{\sigma_{\Delta v}}{\Delta v} \right)^2 + \left( \frac{\sigma_t}{t} \right)^2}
-\]
-where:
-\[
-\sigma_m = 0.01 \, \text{kg}, \quad \sigma_{\Delta v} = 0.05 \, \text{m/s}, \quad \sigma_t = 0.01 \, \text{s}
-\]
+    \includegraphics[scale=0.5]{Images/Screenshot 2024-06-01 at 5.24.20 PM.png}
+    \caption{Caption for Image 1}
+    \label{fig:image1}
+\end{figure}
 
-\subsubsection{Example Error Calculation for Trial 1}
-\begin{align*}
-\sigma_F &= \left| 3.17 \, \text{N} \right| \sqrt{\left( \frac{0.01 \, \text{kg}}{0.50 \, \text{kg}} \right)^2 + \left( \frac{0.05 \, \text{m/s}}{1.51 \, \text{m/s}} \right)^2 + \left( \frac{0.01 \, \text{s}}{0.238 \, \text{s}} \right)^2} \\
-&\approx 3.17 \, \text{N} \sqrt{0.0004 + 0.0011 + 0.0018} \\
-&\approx 3.17 \, \text{N} \cdot 0.052 \\
-&\approx 0.165 \, \text{N}
-\end{align*}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{Images/Screenshot 2024-06-01 at 6.14.05 PM.png}
+    \label{fig:image2}
+\end{figure}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1]{Images/Screenshot 2024-06-01 at 6.49.01 PM.png}
+    \label{fig:image3}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1]{Images/Screenshot 2024-06-01 at 6.49.12 PM.png}
+    \label{fig:image4}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1.5]{Images/Screenshot 2024-06-01 at 6.49.33 PM.png}
+    \label{fig:image5}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1]{Images/Screenshot 2024-06-01 at 6.49.39 PM.png}
+    \label{fig:image6}
+\end{figure}
+
+% Conclusion
 \section{Conclusion}
-Based on the analysis, we can conclude that the force during the collisions remains approximately constant as indicated by the linear relationship in the graph of $m \cdot \Delta v$ vs. time. The range of force values is determined by the slopes of the trendlines.
+Based on the analysis of the data, it appears that the force during the collisions remains approximately constant. This conclusion is supported by the linear relationship observed in the graph of $m \cdot \Delta v$ versus time, where the slope of the graph indicates a consistent force.
 
-\section{References}
+The range of force values, as indicated by the slopes of the trendlines, suggests that the force might fit within the range of approximately 0.2574 N, with variations due to measurement uncertainties and experimental conditions. The data and error analysis show that the force stays relatively constant because the calculated forces for each trial are close to the average force value, considering the small error margins.
+
+If the graph had not been linear, it would suggest that the force does not remain constant during the collisions. In such a case, the data and error analysis would indicate variations in force due to possible changes in collision conditions or measurement inaccuracies. To confirm such a finding, a new experiment with improved measurement techniques, such as using high-speed cameras or more precise force sensors, could be proposed to verify the consistency of the force during collisions.
+
+% References
 \begin{thebibliography}{9}
 \bibitem{labguide}
 Momentum Lab Guidance Document, AP/IB Physics 1, Melissa Shemwell.
 \bibitem{errordoc}
 Types of Error Document, AP/IB Physics 1, Melissa Shemwell.
 \end{thebibliography}
-
-% ----------------------------------------------------------------------
-% Appendices
-% ----------------------------------------------------------------------
-\appendix  
-\clearpage
-\addappheadtotoc 
-\appendixpage 
-
-\section{Raw Data}
-Include any raw data or additional calculations here.
 
 \end{document}

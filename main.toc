@@ -2,9 +2,5 @@
 \contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
 \contentsline {section}{\numberline {2}Data Collection}{3}{section.2}%
 \contentsline {section}{\numberline {3}Analysis \& Error Treatment}{3}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Error Calculation}{3}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Example Error Calculation for Trial 1}{4}{subsubsection.3.1.1}%
-\contentsline {section}{\numberline {4}Conclusion}{4}{section.4}%
-\contentsline {section}{\numberline {5}References}{4}{section.5}%
-\contentsline {section}{Appendices}{5}{section*.4}%
-\contentsline {section}{\numberline {A}Raw Data}{5}{appendix.A}%
+\contentsline {section}{\numberline {4}Error Calculation Methodology}{3}{section.4}%
+\contentsline {section}{\numberline {5}Conclusion}{6}{section.5}%
